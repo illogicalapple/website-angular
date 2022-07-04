@@ -1,0 +1,137 @@
+.full-width {
+  width: 100vw;
+  margin: 0px;
+}
+
+.relative-full-height {
+  height: 100%;
+  margin: 0px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.blue {
+  color: var(--secondary);
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+#navigation :is(a, router-link).option.nope {
+  cursor: default;
+}
+
+#navigation :is(a, router-link).option>span {
+  position: relative;
+}
+
+#navigation :is(a.option:hover[class][class], a.option.active, router-link.option:hover[class][class], router-link.option.active)>span::after {
+  width: calc(100% - 10px);
+}
+
+#navigation :is(a, router-link).option:not(.nope)>span::after {
+  content: "";
+  display: block;
+  margin: auto;
+  margin-top: -0.65em;
+  height: 0.5em;
+  background-color: #007fff;
+  width: 0px;
+  position: absolute;
+  left: 5px;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+#navigation :is(a, router-link).option[class][class][class][class] {
+  text-decoration: unset;
+}
+
+.float-right {
+  float: right;
+}
+
+#navigation[id] * {
+  color: black;
+}
+
+nav#navigation img {
+  display: none;
+  height: 1em;
+  float: right;
+  position: relative;
+  top: calc(35.5px - 0.5em);
+  right: calc(35.5px - 0.5em);
+}
+
+nav#navigation div.menu {
+  opacity: 0;
+  background-color: white;
+  position: absolute;
+  right: 20px;
+  top: 115px;
+  transition: 0.3s;
+  transition-property: height, padding;
+  padding: 5px 10px;
+  text-align: center;
+  border: 1px solid lightgray;
+  background-clip: border-box;
+  width: 15em;
+  height: 0px;
+  pointer-events: none;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  padding: 0em 3em;
+}
+
+nav#navigation div.menu[data-open="bob"] {
+  top: 115px;
+  display: inline-block;
+  padding: 1.5em 3em;
+  pointer-events: all;
+  height: 20em;
+  opacity: 1;
+}
+
+nav#navigation div.menu :is(a, router-link) {
+  padding: 5px;
+  display: inline-block;
+  width: calc(100% + 20px);
+  position: relative;
+  right: 10px;
+}
+
+nav#navigation div.menu :is(a, router-link):hover {
+  text-decoration: none;
+}
+
+nav#navigation {
+  position: fixed;
+  z-index: 1;
+}
+
+#navigation a.stuff-option:is(:hover, .active)::before {
+  content: "hitbox hitbox hitbox";
+  width: 15em;
+  display: inline-block;
+  position: absolute;
+  height: 30px;
+  top: 85px;
+  right: 20px;
+  opacity: 0;
+}
+
+#navigation div.menu::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+}
+
+#navigation div.menu::-moz-scrollbar {
+  width: 0px;
+  display: none;
+}

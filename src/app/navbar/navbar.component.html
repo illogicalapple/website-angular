@@ -1,0 +1,30 @@
+<nav id="navigation" style="position: fixed; left: 0px; top: 0px; height: 85px; background-color: white; border-bottom: 1px solid lightgray;" class="full-width" >
+  <div style="position: absolute; left: 10px; width: 50px;" class="relative-full-height">
+    <a style="position: absolute; left: 0px; padding: 0px 20px; display: table;" class="relative-full-height title bold float-left option nope">
+    <span style="display: table-cell; vertical-align: middle; text-align: center;">
+    illogical<span class="blue" style="color: var(--secondary);">apple</span>
+    </span>
+    </a>
+  </div>
+  <div style="position: absolute; right: 10px; top: 0px;" class="relative-full-height">
+    <a href="javascript:void(0)" style="display: table; padding: 0px 20px; cursor: pointer;" class="relative-full-height float-right option stuff-option" (mouseover)="toggleMenu(true)" (mouseleave)="toggleMenu(false)">
+      <span style="display: table-cell; vertical-align: middle; text-align: center;">
+      stuff i made
+      </span>
+      <div class="menu" style="text-align: left; overflow-y: auto; overflow-x: hidden;" [data-open]="menuOpen ? 'bob' : 'not bob'">
+        <span *ngFor="let page of pages; last as isLast">
+          <a [href]="page.url">
+            <h2 style="margin-bottom: 0.5em;color: var(--secondary);" class="blue">{{ page.title }}</h2>
+            {{ page.desc }}
+          </a>
+          <span *ngIf="!isLast"><br></span>
+        </span>
+      </div>
+    </a>
+    <a href="/" style="display: table; padding: 0px 20px;" class="relative-full-height float-right option home-option">
+      <span style="display: table-cell; vertical-align: middle; text-align: center;">
+        home
+      </span>
+    </a>
+  </div>
+</nav>
