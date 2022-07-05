@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 @Component({
   selector: 'app-navbar',
-  templateUrl: './navbar/navbar.component.html',
-  styleUrls: ['./navbar/navbar.component.css']
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
 
 export class AppComponent {
-  title = 'my-app';
+  title = "illogicalapple";
 }
