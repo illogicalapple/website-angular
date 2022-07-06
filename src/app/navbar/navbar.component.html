@@ -11,7 +11,7 @@
       <span style="display: table-cell; vertical-align: middle; text-align: center;">
       stuff i made
       </span>
-      <div class="menu" style="text-align: left; overflow-y: auto; overflow-x: hidden;" [data-open]="menuOpen ? 'bob' : 'not bob'">
+      <div class="menu" style="text-align: left; overflow-y: auto; overflow-x: hidden;" [attr.data-open]="menuOpen ? 'bob' : 'not bob'">
         <span *ngFor="let page of pages; last as isLast">
           <a [href]="page.url">
             <h2 style="margin-bottom: 0.5em;color: var(--secondary);" class="blue">{{ page.title }}</h2>
