@@ -1,0 +1,14 @@
+<main id="content" (keydown.space)="toggleScribble()">
+  <canvas id="drawing" (touchstart)="handleMouseDown($event)" (touchmove)="handleMouseMove($event)"
+    (touchend)="handleMouseUp($event)" (touchcancel)="handleMouseUp($event)" (mousedown)="handleMouseDown($event)"
+    (mousemove)="handleMouseMove($event)" (mouseup)="handleMouseUp($event)" (load)="onCanvasLoad($event)"></canvas>
+    <!-- use event.preventdefault for touchmove and mousemove -->
+  <footer class="menu-wrapper">
+    <div class="menu-flexbox">
+      <!--div class="color"></div-->
+      <img src="../assets/scribble/normal.svg" (click)="toggleScribble(false)">
+      <img src="../assets/scribble/scribblified.svg" (click)="toggleScribble(true)">
+      <!--img src="../assets/scribble/eraser.svg"-->
+    </div>
+  </footer>
+</main>
