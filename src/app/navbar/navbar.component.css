@@ -65,20 +65,18 @@ nav#navigation div.menu {
   right: 20px;
   top: 115px;
   transition: 0.3s;
-  transition-property: --animation, padding;
+  transition-property: height, padding;
   padding: 5px 10px;
   text-align: center;
   border: 1px solid lightgray;
   background-clip: border-box;
   width: 10rem;
-  --animation: 0;
-  height: calc(17.5rem * var(--animation));
+  height: 0px;
   pointer-events: none;
   -ms-overflow-style: none;
   scrollbar-color: transparent transparent;
   scrollbar-width: none;
   padding: 0em 3em;
-  opacity: clamp(0, calc(var(--animation) * 999999), 1); /* just big number :] */
 }
 
 nav#navigation div.menu[data-open="bob"] {
@@ -86,7 +84,7 @@ nav#navigation div.menu[data-open="bob"] {
   display: inline-block;
   padding: 1.5em 3em;
   pointer-events: all;
-  --animation: 1;
+  height: 17.5rem;
   opacity: 1;
 }
 
