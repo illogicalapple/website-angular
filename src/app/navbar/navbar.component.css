@@ -135,3 +135,8 @@ nav#navigation {
   width: 0px;
   display: none;
 }
+
+#navigation a > span {
+  font-size: 21px;
+  font-family: Poppins;
+}
