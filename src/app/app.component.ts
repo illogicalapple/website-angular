@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export NavbarComponent from "./navbar/navbar.component.ts"
 export class AppComponent {
   title = "illogicalapple";
 }
