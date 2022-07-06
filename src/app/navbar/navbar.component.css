@@ -65,10 +65,10 @@ nav#navigation div.menu {
   right: 20px;
   top: 115px;
   transition: 0.3s;
-  transition-property: height, padding;
+  transition-property: height, padding, border;
   padding: 5px 10px;
   text-align: center;
-  border: 1px solid lightgray;
+  border: 0px solid lightgray;
   background-clip: border-box;
   width: 10rem;
   height: 0px;
@@ -86,6 +86,7 @@ nav#navigation div.menu[data-open="bob"] {
   pointer-events: all;
   height: 17.5rem;
   opacity: 1;
+  border: 1px solid lightgray;
 }
 
 nav#navigation div.menu :is(a, router-link) {
