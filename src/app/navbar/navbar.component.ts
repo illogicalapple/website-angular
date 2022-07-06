@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   
   menuOpen = false
-  toggleMenu = stuf => {
+  toggleMenu = (stuf: Boolean) => {
     this.menuOpen = stuf
   }
   pages = [
