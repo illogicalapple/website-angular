@@ -59,34 +59,26 @@ a {
   color: black;
 }
 
-nav#navigation img {
-  display: none;
-  height: 1em;
-  float: right;
-  position: relative;
-  top: calc(35.5px - 0.5em);
-  right: calc(35.5px - 0.5em);
-}
-
 nav#navigation div.menu {
-  opacity: 0;
   background-color: white;
   position: absolute;
   right: 20px;
   top: 115px;
   transition: 0.3s;
-  transition-property: height, padding;
+  transition-property: --animation, padding;
   padding: 5px 10px;
   text-align: center;
   border: 1px solid lightgray;
   background-clip: border-box;
-  width: 15em;
-  height: 0px;
+  width: 10rem;
+  --animation: 0;
+  height: calc(17.5rem * var(--animation));
   pointer-events: none;
   -ms-overflow-style: none;
   scrollbar-color: transparent transparent;
   scrollbar-width: none;
   padding: 0em 3em;
+  opacity: clamp(0, calc(var(--animation) * 999999), 1); /* just big number :] */
 }
 
 nav#navigation div.menu[data-open="bob"] {
@@ -94,7 +86,7 @@ nav#navigation div.menu[data-open="bob"] {
   display: inline-block;
   padding: 1.5em 3em;
   pointer-events: all;
-  height: 20em;
+  --animation: 1;
   opacity: 1;
 }
 
