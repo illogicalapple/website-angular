@@ -1,0 +1,13 @@
+span.home-blue-underline::after {
+  content: "";
+  display: block;
+  margin: auto;
+  margin-top: -0.65em;
+  height: 0.5em;
+  background-color: #007fff;
+  width: calc(100% - 30px);
+  position: absolute;
+  left: 15px;
+  z-index: -1;
+  transition: 0.3s;
+}

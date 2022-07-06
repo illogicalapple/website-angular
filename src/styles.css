@@ -8,17 +8,34 @@
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
+
 .blue {
   color: var(--secondary);
 }
-html, body {
+
+html,
+body {
   font-family: Lato, system-ui;
   overflow: hidden;
   margin: 0px;
   line-height: 1.5;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0px;
   font-family: Poppins, system-ui;
   line-height: initial;
+}
+
+main {
+  height: calc(var(--height) - 85px);
+  width: 100vw;
+  position: absolute;
+  top: 85px;
+  left: 0px;
 }
