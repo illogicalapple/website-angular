@@ -5,12 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-@Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
-})
 
+export NavbarComponent from "./navbar/navbar.component.ts"
 export class AppComponent {
   title = "illogicalapple";
 }
