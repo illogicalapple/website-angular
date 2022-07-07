@@ -7,5 +7,17 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = "illogicalapple";
+  setHeightInterval = () => {
+    const interval = setInterval(this.onResize, 500, {
+      target: window
+    });
+    window.addEventListener("resize", this.onResize);
+    this.onResize({
+      target: window
+    });
+  }
+  onResize = (event: any) => {
+    event.target.document.body.style.setProperty("--height", event.target.innerHeight + "px");
+  }
+  title = "illogicalapple"
 }

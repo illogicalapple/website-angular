@@ -10,23 +10,25 @@ export class ScribbleComponent implements OnInit {
   drawing = {
     title: "untitled",
     destroy: 20,
-    frames: [[]]
+    frames: [[<any>]]
   }
   scribbled = false
-  canvas = null
+  canvas: any = document.createElement("canvas")
   onCanvasLoad = (e: any) => {
-    this.canvas = e.target
-    this.onWindowResize()
+    this.canvas = e.target;
+    this.onWindowResize();
+    window.addEventListener("resize", this.onWindowResize);
+    window.onbeforeunload = () => "do you really want to leave? your edits will be lost";
   }
-  interval = null
+  interval: any = null
   warp = (e: any, s: number, a: number) => [e[0] + Math.sin(Date.now() * s + e[1]) * a, e[1] + Math.sin(Date.now() * s + e[0]) * a]
-  location = function(event: any) { // get location of the touch/mouse event
-		if(event instanceof TouchEvent) {
-			return [ (event.touches[0] || event.changedTouches[0]).clientX, (event.touches[0] || event.changedTouches[0]).clientY - 85 ]; // single touch im not bothering to do multiple :p
-		} else {
-			return [ event.clientX, event.clientY - 85 ];
-		}
-	}
+  location = (event: any) => {
+    if (event instanceof TouchEvent) {
+      return [(event.touches[0] || event.changedTouches[0]).clientX, (event.touches[0] || event.changedTouches[0]).clientY - 85]; // single touch im not bothering to do multiple :p
+    } else {
+      return [event.clientX, event.clientY - 85];
+    }
+  }
   target = null
   mouse = false
   oldPosition = false
@@ -40,7 +42,7 @@ export class ScribbleComponent implements OnInit {
 		context.lineWidth = 5;
 		context.beginPath();
 		let down = false;
-		let _warp = destroyed ? this.warp : (e: Array) => e;
+		let _warp = destroyed ? this.warp : (e: Array<any>) => e;
 		let position = false;
 		rendering.forEach((e: any) => {
 			if(e == "DOWN") { down = true; return; }
@@ -72,6 +74,46 @@ export class ScribbleComponent implements OnInit {
 			this.oldPosition = position;
 		}
 	}
+  toggleScribble = (bob: boolean) => {
+		this.scribbled = bob ?? !this.scribbled;
+		if(this.interval && !this.scribbled) {
+			clearInterval(this.interval);
+			this.interval = null;
+			this.render();
+		}
+		if(!this.interval && this.scribbled) {
+			this.interval = setInterval(this.render, 33);
+		}
+	}
+  handleMouseDown = (event: any) => {
+    if(!this.target) this.target = this.render();
+    const position = this.location(event);
+    this.drawing.frames[0].push(position);
+    this.addLine(this.target, position);
+    this.drawing.frames[0].push("DOWN");
+    this.addLine(this.target, "DOWN");
+  }
+  handleMouseUp = (event: any) => {
+    if(!this.target) this.target = this.render();
+    const position = this.location(event);
+    this.drawing.frames[0].push(position);
+    this.addLine(this.target, position);
+    this.drawing.frames[0].push("UP");
+    this.addLine(this.target, "UP");
+  }
+  handleMouseMove = (event: any) => {
+    if(!this.target) this.target = this.render();
+    const position = this.location(event);
+    if(this.mouse) {
+      this.drawing.frames[0].push(position);
+      this.addLine(this.target, position);
+    }
+  }
+  onWindowResize = () => {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight - (85 * 2);
+    this.render();
+  }
 
   constructor() { }
 
