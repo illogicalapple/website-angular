@@ -21,6 +21,10 @@ body {
   line-height: 1.5;
 }
 
+body {
+  --height: calc(100vh - 85px);
+}
+
 h1,
 h2,
 h3,
